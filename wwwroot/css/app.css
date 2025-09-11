@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Stile per il calcolatore acqua riso */
 .calcolatore-container {
     display: flex;
@@ -56,30 +57,29 @@
     text-align: center;
 }
 
+=======
+>>>>>>> parent of 2edec36 (ok)
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #f5f5dc; /* beige */
-    color: #3d5229; /* verde oliva scuro */
 }
 
-
-h1 {
-    color: #808000; /* verde oliva */
-}
 h1:focus {
     outline: none;
 }
 
-
 a, .btn-link {
-    color: #808000; /* verde oliva */
+    color: #0071c1;
 }
-
 
 .btn-primary {
     color: #fff;
+<<<<<<< HEAD
     background-color: #808000; /* verde oliva */
     border-color: #3d5229;
+=======
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+>>>>>>> parent of 2edec36 (ok)
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -147,12 +147,11 @@ a, .btn-link {
         transform: rotate(-90deg);
     }
 
-
-            .loading-progress circle:last-child {
-                stroke: #808000; /* verde oliva */
-                stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-                transition: stroke-dasharray 0.05s ease-in-out;
-            }
+        .loading-progress circle:last-child {
+            stroke: #1b6ec2;
+            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+            transition: stroke-dasharray 0.05s ease-in-out;
+        }
 
 .loading-progress-text {
     position: absolute;
@@ -165,7 +164,6 @@ a, .btn-link {
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
-
 code {
-    color: #808000; /* verde oliva */
+    color: #c02d76;
 }
