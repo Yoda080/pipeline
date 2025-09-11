@@ -2080,6 +2080,10 @@ C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\
 C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\ProgettoPipeline.staticwebassets.endpoints.json
 C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\wwwroot\sample-data\weather.json
 C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\wwwroot\_framework\blazor.boot.json
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\1yny27s4hl-ysfkuqp33p.gz
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ucdgav30az-89l50n3eal.gz
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ruhqla0ies-m6ucbvkn7d.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\publish\emcc-props.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\publish\ProgettoPipeline.staticwebassets.endpoints.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\publish\wwwroot\sample-data\weather.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\publish\wwwroot\_framework\blazor.boot.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\1yny27s4hl-bd3m408mkd.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ucdgav30az-hou6iz6czc.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ruhqla0ies-69bbs8ynej.gz
