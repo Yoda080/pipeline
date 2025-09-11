@@ -105,9 +105,10 @@ html, body {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, #808000 0%, #3d5229  70%);
+    /* Gradiente verde per abbinarsi al calcolatore */
+    background-image: linear-gradient(180deg, #808000 0%, #3d5229 70%);
     width: 220px;
-    min-height: auto;
+    min-height: 100vh; /* Assicura che la sidebar copra l'intera altezza del viewport */
     position: fixed;
     left: 0;
     top: 0;
@@ -118,13 +119,13 @@ html, body {
 
 .main {
     flex: 1;
-    margin-left: 220px;
+    margin-left: 220px; /* Spazio per la sidebar */
     padding: 1rem;
 }
 
 .top-row {
-    background-color: #000000;
-    border-bottom: 1px solid #1a1a1a;
+    background-color: #1a1a1a; /* Grigio scuro per abbinarsi al verde */
+    border-bottom: 1px solid #333;
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
