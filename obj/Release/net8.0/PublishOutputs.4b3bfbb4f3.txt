@@ -1,0 +1,2 @@
+C:\Users\A907apulia\Desktop\ProgettoPipeline\publish\emcc-props.json
+C:\Users\A907apulia\Desktop\ProgettoPipeline\publish\web.config
