@@ -2088,6 +2088,6 @@ C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\ProgettoPipeline.d
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\refint\ProgettoPipeline.dll
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\ProgettoPipeline.pdb
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\ref\ProgettoPipeline.dll
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\compressed\1yny27s4hl-1dmxu0t1x8.gz
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\compressed\ucdgav30az-jqldwur4b6.gz
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\compressed\ruhqla0ies-vjzxlz6ehs.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\compressed\1yny27s4hl-8usxt060np.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\compressed\ucdgav30az-e95903dqlj.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Debug\net8.0\compressed\ruhqla0ies-676u208b8i.gz
