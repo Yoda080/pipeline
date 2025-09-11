@@ -22,7 +22,7 @@ a, .btn-link {
 .btn-primary {
     color: #fff;
     background-color: #808000; /* verde oliva */
-    border-color: #3d5229; /* verde oliva scuro */
+    border-color: #3d5229;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
