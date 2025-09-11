@@ -2,6 +2,52 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Calcolatore acqua per riso</h1>
 
-Welcome to your new app.
+<EditForm Model="this">
+	<div>
+		<label for="tipoRiso">Tipo di riso:</label>
+		<select id="tipoRiso" @bind="tipoRiso">
+			<option value="Arborio">Arborio</option>
+			<option value="Basmati">Basmati</option>
+			<option value="Carnaroli">Carnaroli</option>
+			<option value="Vialone Nano">Vialone Nano</option>
+		</select>
+	</div>
+	<div>
+		<label for="quantitaRiso">Quantità di riso (grammi):</label>
+		<input id="quantitaRiso" type="number" @bind="quantitaRiso" min="1" />
+	</div>
+	<button type="button" @onclick="CalcolaAcqua">Calcola acqua</button>
+</EditForm>
+
+@if (acquaNecessaria > 0)
+{
+	<p>Per cucinare @quantitaRiso g di riso @tipoRiso servono @acquaNecessaria ml di acqua.</p>
+}
+
+@code {
+	private string tipoRiso = "Arborio";
+	private int quantitaRiso = 0;
+	private int acquaNecessaria = 0;
+
+	private Dictionary<string, double> rapportoAcqua = new()
+	{
+		{ "Arborio", 2.5 },
+		{ "Basmati", 2 },
+		{ "Carnaroli", 2.2 },
+		{ "Vialone Nano", 2.3 }
+	};
+
+	private void CalcolaAcqua()
+	{
+		if (quantitaRiso > 0 && rapportoAcqua.ContainsKey(tipoRiso))
+		{
+			acquaNecessaria = (int)(quantitaRiso * rapportoAcqua[tipoRiso]);
+		}
+		else
+		{
+			acquaNecessaria = 0;
+		}
+	}
+}

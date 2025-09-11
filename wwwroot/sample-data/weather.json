@@ -1,27 +1,18 @@
 ﻿[
   {
-    "date": "2022-01-06",
-    "temperatureC": 1,
-    "summary": "Freezing"
+    "tipo": "Arborio",
+    "acquaPer100g": 250
   },
   {
-    "date": "2022-01-07",
-    "temperatureC": 14,
-    "summary": "Bracing"
+    "tipo": "Basmati",
+    "acquaPer100g": 200
   },
   {
-    "date": "2022-01-08",
-    "temperatureC": -13,
-    "summary": "Freezing"
+    "tipo": "Carnaroli",
+    "acquaPer100g": 220
   },
   {
-    "date": "2022-01-09",
-    "temperatureC": -16,
-    "summary": "Balmy"
-  },
-  {
-    "date": "2022-01-10",
-    "temperatureC": -2,
-    "summary": "Chilly"
+    "tipo": "Vialone Nano",
+    "acquaPer100g": 230
   }
 ]
