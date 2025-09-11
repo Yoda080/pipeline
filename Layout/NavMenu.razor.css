@@ -1,3 +1,14 @@
+/* Link neri e allineati a destra */
+.nav-link {
+    color: #111 !important;
+    text-align: right;
+}
+/* Sfondo beige per la barra di navigazione */
+.nav-scrollable {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
 .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
 }
