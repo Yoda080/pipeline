@@ -47,10 +47,45 @@
 		if (quantitaRiso > 0 && rapportoAcqua.ContainsKey(tipoRiso))
 		{
 			acquaNecessaria = (int)(quantitaRiso * rapportoAcqua[tipoRiso]);
+			SalvaRisultato();
 		}
 		else
 		{
 			acquaNecessaria = 0;
 		}
+	}
+
+	private void SalvaRisultato()
+	{
+		var risultato = new RisultatoRiso
+		{
+			Tipo = tipoRiso,
+			Quantita = quantitaRiso,
+			Acqua = acquaNecessaria,
+			Data = DateTime.Now
+		};
+
+		var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot/sample-data/riso_risultati.json");
+		List<RisultatoRiso> risultati;
+		if (File.Exists(filePath))
+		{
+			var json = File.ReadAllText(filePath);
+			risultati = System.Text.Json.JsonSerializer.Deserialize<List<RisultatoRiso>>(json) ?? new();
+		}
+		else
+		{
+			risultati = new();
+		}
+		risultati.Add(risultato);
+		var nuovoJson = System.Text.Json.JsonSerializer.Serialize(risultati, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+		File.WriteAllText(filePath, nuovoJson);
+	}
+
+	public class RisultatoRiso
+	{
+		public string Tipo { get; set; } = string.Empty;
+		public int Quantita { get; set; }
+		public int Acqua { get; set; }
+		public DateTime Data { get; set; }
 	}
 }
