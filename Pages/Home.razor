@@ -2,29 +2,32 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Calcolatore acqua per riso</h1>
 
-<EditForm Model="this">
-	<div>
-		<label for="tipoRiso">Tipo di riso:</label>
-		<select id="tipoRiso" @bind="tipoRiso">
-			<option value="Arborio">Arborio</option>
-			<option value="Basmati">Basmati</option>
-			<option value="Carnaroli">Carnaroli</option>
-			<option value="Vialone Nano">Vialone Nano</option>
-		</select>
+<div class="calcolatore-container">
+	<div class="calcolatore-box">
+		<h1>Calcolatore acqua per riso</h1>
+		<EditForm Model="this">
+			<div>
+				<label for="tipoRiso">Tipo di riso:</label>
+				<select id="tipoRiso" @bind="tipoRiso">
+					<option value="Arborio">Arborio</option>
+					<option value="Basmati">Basmati</option>
+					<option value="Carnaroli">Carnaroli</option>
+					<option value="Vialone Nano">Vialone Nano</option>
+				</select>
+			</div>
+			<div>
+				<label for="quantitaRiso">Quantità di riso (grammi):</label>
+				<input id="quantitaRiso" type="number" @bind="quantitaRiso" min="1" />
+			</div>
+			<button type="button" @onclick="CalcolaAcqua">Calcola acqua</button>
+		</EditForm>
+		@if (acquaNecessaria > 0)
+		{
+			<p>Per cucinare @quantitaRiso g di riso @tipoRiso servono @acquaNecessaria ml di acqua.</p>
+		}
 	</div>
-	<div>
-		<label for="quantitaRiso">Quantità di riso (grammi):</label>
-		<input id="quantitaRiso" type="number" @bind="quantitaRiso" min="1" />
-	</div>
-	<button type="button" @onclick="CalcolaAcqua">Calcola acqua</button>
-</EditForm>
-
-@if (acquaNecessaria > 0)
-{
-	<p>Per cucinare @quantitaRiso g di riso @tipoRiso servono @acquaNecessaria ml di acqua.</p>
-}
+</div>
 
 @code {
 	private string tipoRiso = "Arborio";

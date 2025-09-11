@@ -1,3 +1,60 @@
+/* Stile per il calcolatore acqua riso */
+.calcolatore-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.calcolatore-box {
+    background: #f5f5dc; /* beige */
+    border-radius: 2rem;
+    box-shadow: 0 4px 24px rgba(61, 82, 41, 0.15);
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    width: 100%;
+}
+
+.calcolatore-box label {
+    margin-bottom: 0.5rem;
+    color: #3d5229;
+    font-weight: bold;
+}
+
+.calcolatore-box select,
+.calcolatore-box input {
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #808000;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.calcolatore-box button {
+    background-color: #808000;
+    color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+.calcolatore-box button:hover {
+    background-color: #3d5229;
+}
+
+.calcolatore-box p {
+    margin-top: 1.5rem;
+    color: #3d5229;
+    font-size: 1.1rem;
+    text-align: center;
+}
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
