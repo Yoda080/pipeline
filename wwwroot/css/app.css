@@ -6,7 +6,7 @@ html, body {
     min-height: 100vh;
 }
 
-/* Stile per il calcolatore acqua riso */
+
 .calcolatore-container {
     display: flex;
     justify-content: center;
