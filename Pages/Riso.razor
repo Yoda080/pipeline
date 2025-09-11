@@ -33,14 +33,14 @@ else
 }
 
 @code {
-    private List<Riso>? risi;
+    private List<TipoRiso>? risi;
 
     protected override async Task OnInitializedAsync()
     {
-        risi = await Http.GetFromJsonAsync<List<Riso>>("sample-data/weather.json");
+    risi = await Http.GetFromJsonAsync<List<TipoRiso>>("sample-data/weather.json");
     }
 
-    public class Riso
+    public class TipoRiso
     {
         public string Tipo { get; set; } = string.Empty;
         public int AcquaPer100g { get; set; }
