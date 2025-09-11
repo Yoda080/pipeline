@@ -1,3 +1,26 @@
+/* Sidebar sempre visibile e fissa */
+.sidebar {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    width: 220px;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    margin-left: 220px;
+}
 .page {
     position: relative;
     display: flex;
