@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* Stile per il calcolatore acqua riso */
 .calcolatore-container {
     display: flex;
@@ -57,8 +57,7 @@
     text-align: center;
 }
 
-=======
->>>>>>> parent of 2edec36 (ok)
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -73,19 +72,25 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
-<<<<<<< HEAD
-    background-color: #808000; /* verde oliva */
-    border-color: #3d5229;
-=======
     background-color: #1b6ec2;
     border-color: #1861ac;
->>>>>>> parent of 2edec36 (ok)
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+article {
+    padding: 1rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-left: 220px; /* Larghezza della sidebar */
+}
+
+background {
+    background-color: #808000;
+    min-height: 100vh;
+}
 .content {
     padding-top: 1.1rem;
 }
