@@ -29,10 +29,39 @@
     </div>
 </div>
 
+@if (risultatiSalvati.Any())
+{
+    <div class="risultati-tabella">
+        <h2>Risultati salvati</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Quantità (g)</th>
+                    <th>Acqua (ml)</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var risultato in risultatiSalvati)
+                {
+                    <tr>
+                        <td>@risultato.Tipo</td>
+                        <td>@risultato.Quantita</td>
+                        <td>@risultato.Acqua</td>
+                        <td>@risultato.Data.ToShortDateString() @risultato.Data.ToShortTimeString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
 @code {
     private string tipoRiso = "Arborio";
     private int quantitaRiso = 0;
     private int acquaNecessaria = 0;
+    private List<RisultatoRiso> risultatiSalvati = new();
 
     private Dictionary<string, double> rapportoAcqua = new()
     {
@@ -41,6 +70,14 @@
         { "Carnaroli", 2.2 },
         { "Vialone Nano", 2.3 }
     };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await CaricaRisultati();
+        }
+    }
 
     private void CalcolaAcqua()
     {
@@ -67,6 +104,24 @@
 
         // Chiama una funzione JavaScript per salvare i dati
         await JSRuntime.InvokeVoidAsync("salvaRisultatoInLocalStorage", risultato);
+
+        // Aggiorna la tabella dopo il salvataggio
+        await CaricaRisultati();
+    }
+
+    private async Task CaricaRisultati()
+    {
+        // Chiama una funzione JavaScript per leggere i dati
+        var json = await JSRuntime.InvokeAsync<string>("caricaRisultatiDaLocalStorage");
+        if (!string.IsNullOrEmpty(json))
+        {
+            risultatiSalvati = System.Text.Json.JsonSerializer.Deserialize<List<RisultatoRiso>>(json) ?? new();
+        }
+        else
+        {
+            risultatiSalvati = new();
+        }
+        StateHasChanged(); // Forza il re-render del componente per mostrare la tabella
     }
 
     public class RisultatoRiso
