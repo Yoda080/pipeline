@@ -2067,9 +2067,6 @@ C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\e9eid
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\y26lthwjgn-tptq2av103.gz
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\sge32j7fnl-lfu7j35m59.gz
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\4glg75xtqi-oyz0vx2fzb.gz
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\1yny27s4hl-69ip2ls635.gz
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ucdgav30az-ylzdsp29wc.gz
-C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ruhqla0ies-ndj4hsnh0h.gz
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\staticwebassets.build.json
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\staticwebassets.build.json.cache
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\staticwebassets.development.json
@@ -2079,3 +2076,10 @@ C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\ProgettoPipeline
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\refint\ProgettoPipeline.dll
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\ProgettoPipeline.pdb
 C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\ref\ProgettoPipeline.dll
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\emcc-props.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\ProgettoPipeline.staticwebassets.endpoints.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\wwwroot\sample-data\weather.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\bin\Release\net8.0\publish\publish\wwwroot\_framework\blazor.boot.json
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\1yny27s4hl-ysfkuqp33p.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ucdgav30az-89l50n3eal.gz
+C:\Users\A894apulia\Desktop\ProgettoPipeline\obj\Release\net8.0\compressed\ruhqla0ies-m6ucbvkn7d.gz

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProgettoPipeline")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8dbe76d4e6e8ce6042d753151e7e070a6f69eea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfc6364cc5a9b5591770cd9c8539716105d48036")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProgettoPipeline")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProgettoPipeline")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
