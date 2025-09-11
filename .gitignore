@@ -1,0 +1,29 @@
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Build outputs
+bin/
+obj/
+publish/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs, temp
+*.log
+*.tmp
+*.bak
+*.swp
