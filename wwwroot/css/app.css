@@ -1,19 +1,28 @@
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f5f5dc; /* beige */
+    color: #3d5229; /* verde oliva scuro */
 }
 
+
+h1 {
+    color: #808000; /* verde oliva */
+}
 h1:focus {
     outline: none;
 }
 
+
 a, .btn-link {
-    color: #0071c1;
+    color: #808000; /* verde oliva */
 }
+
 
 .btn-primary {
     color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: #808000; /* verde oliva */
+    border-color: #3d5229; /* verde oliva scuro */
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -81,11 +90,12 @@ a, .btn-link {
         transform: rotate(-90deg);
     }
 
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
+
+            .loading-progress circle:last-child {
+                stroke: #808000; /* verde oliva */
+                stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+                transition: stroke-dasharray 0.05s ease-in-out;
+            }
 
 .loading-progress-text {
     position: absolute;
@@ -98,6 +108,7 @@ a, .btn-link {
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
+
 code {
-    color: #c02d76;
+    color: #808000; /* verde oliva */
 }
