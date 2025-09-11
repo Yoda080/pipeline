@@ -4,7 +4,3 @@ window.salvaRisultatoInLocalStorage = (risultato) => {
     risultati.push(risultato);
     localStorage.setItem('risultatiRiso', JSON.stringify(risultati));
 };
-
-window.caricaRisultatiDaLocalStorage = () => {
-    return localStorage.getItem('risultatiRiso');
-};
