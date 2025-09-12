@@ -6,7 +6,7 @@
     <title>RisoApp - Calcolatore Acqua per Riso</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
     <div class="page">
@@ -100,53 +100,6 @@
         </div>
     </div>
     
-    <script>
-        // JavaScript di base per la demo
-        document.addEventListener('DOMContentLoaded', function() {
-            // Dati per la tabella
-            const tipiRiso = [
-                { tipo: "Arborio", acqua: 300 },
-                { tipo: "Basmati", acqua: 180 },
-                { tipo: "Carnaroli", acqua: 320 },
-                { tipo: "Vialone Nano", acqua: 280 }
-            ];
-            
-            // Popola la tabella dei tipi di riso
-            const tabellaBody = document.querySelector('#tabellaTipiRiso tbody');
-            tipiRiso.forEach(riso => {
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${riso.tipo}</td><td>${riso.acqua} ml</td>`;
-                tabellaBody.appendChild(row);
-            });
-            
-            // Gestione del calcolo
-            document.getElementById('calcolaBtn').addEventListener('click', function() {
-                const tipoRiso = document.getElementById('tipoRiso').value;
-                const quantitaRiso = parseInt(document.getElementById('quantitaRiso').value);
-                
-                if (isNaN(quantitaRiso) || quantitaRiso <= 0) {
-                    alert("Inserisci una quantità valida");
-                    return;
-                }
-                
-                const risoSelezionato = tipiRiso.find(r => r.tipo === tipoRiso);
-                const acquaNecessaria = Math.round((risoSelezionato.acqua * quantitaRiso) / 100);
-                
-                const risultatoP = document.getElementById('risultatoP');
-                risultatoP.textContent = `Per ${quantitaRiso}g di riso ${tipoRiso} servono ${acquaNecessaria}ml di acqua.`;
-                risultatoP.style.display = 'block';
-                
-                // Aggiungi al storico (demo)
-                const storicoBody = document.querySelector('#storicoCalcoli tbody');
-                const newRow = document.createElement('tr');
-                const now = new Date();
-                newRow.innerHTML = `<td>${tipoRiso}</td><td>${quantitaRiso}g</td><td>${acquaNecessaria}ml</td><td>${now.toLocaleString()}</td>`;
-                storicoBody.appendChild(newRow);
-                
-                // Nascondi il messaggio di caricamento
-                document.getElementById('storico-loading').style.display = 'none';
-            });
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
