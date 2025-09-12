@@ -1,0 +1,48 @@
+﻿@page "/riso"
+@inject HttpClient Http
+
+<PageTitle>Riso</PageTitle>
+
+<h1>Tipologie di riso e quantità d'acqua</h1>
+
+<p>Questa tabella mostra le tipologie di riso e la quantità d'acqua necessaria per 100g.</p>
+
+@if (risi == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tipo di riso</th>
+                <th>Acqua per 100g (ml)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var riso in risi)
+            {
+                <tr>
+                    <td>@riso.Tipo</td>
+                    <td>@riso.AcquaPer100g</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<TipoRiso>? risi;
+
+    protected override async Task OnInitializedAsync()
+    {
+    risi = await Http.GetFromJsonAsync<List<TipoRiso>>("sample-data/weather.json");
+    }
+
+    public class TipoRiso
+    {
+        public string Tipo { get; set; } = string.Empty;
+        public int AcquaPer100g { get; set; }
+    }
+}
