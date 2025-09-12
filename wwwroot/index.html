@@ -1,121 +1,115 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RisoApp - Calcolatore Acqua per Riso</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <title>Calcolatore Riso e Acqua</title>
+    <!-- Utilizza il font Inter di Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <!-- Icone di Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <style>
-        :root {
-            --primary-color: #808000; /* Verde oliva */
-            --secondary-color: #3d5229; /* Verde scuro */
-            --background-color: #f5f5dc; /* Beige */
-            --text-color: #3d5229; /* Verde oliva scuro */
-            --sidebar-width: 250px;
-            --top-row-height: 3.5rem;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Stile del corpo e del calcolatore */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            background-color: #f5f5dc; /* beige */
+            color: #3d5229; /* verde oliva scuro */
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
-        }
-
-        /* Layout */
-        .page {
             display: flex;
-            min-height: 100vh;
         }
 
+        /* Stile per la sidebar */
         .sidebar {
-            background-image: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 70%);
-            width: var(--sidebar-width);
+            background-image: linear-gradient(180deg, #808000 0%, #3d5229 70%);
+            width: 220px;
             min-height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
-            z-index: 100;
-            padding: 1.5rem 1rem;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
             color: white;
         }
-
-        .sidebar h2 {
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
         .sidebar-links {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 1rem;
+            margin-top: 2rem;
         }
-
-        .sidebar-links a {
+        .sidebar a {
             color: white;
             text-decoration: none;
-            padding: 0.75rem 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 0.5rem;
+            transition: background-color 0.2s;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            transition: background-color 0.2s;
+        }
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .sidebar a i {
+            margin-right: 0.75rem;
+        }
+        .sidebar h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        .sidebar-links a:hover, .sidebar-links a.active {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-
+        /* Spaziatura per il contenuto principale */
         .main {
             flex: 1;
-            margin-left: var(--sidebar-width);
+            margin-left: 220px; /* Spazio per la sidebar */
+            padding: 1rem 2rem;
         }
 
+        /* Stile della top-row, ora scura con testo bianco */
         .top-row {
-            background-color: var(--secondary-color);
-            border-bottom: 1px solid #d6d5d5;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
             justify-content: flex-end;
-            height: var(--top-row-height);
+            height: 3.5rem;
             display: flex;
             align-items: center;
+            color: #ffffff;
             padding: 0 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 5;
         }
 
         .top-row a {
-            color: white;
+            color: #ffffff !important;
             white-space: nowrap;
             margin-left: 1.5rem;
             text-decoration: none;
+            line-height: 3.5rem;
         }
 
         .top-row a:hover {
             text-decoration: underline;
         }
-
-        .content {
-            padding: 1.5rem;
-        }
-
-        /* Calcolatore */
+        
+        /* Stile per il calcolatore acqua riso */
         .calcolatore-container {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 60vh;
         }
-
         .calcolatore-box {
-            background: var(--background-color);
+            background: #f5f5dc; /* beige */
             border-radius: 2rem;
             box-shadow: 0 4px 24px rgba(61, 82, 41, 0.15);
             padding: 2rem 2.5rem;
@@ -124,278 +118,334 @@
             align-items: center;
             max-width: 350px;
             width: 100%;
+            border: 1px solid #808000;
         }
 
-        .form-group {
-            width: 100%;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
+        .calcolatore-box label {
             margin-bottom: 0.5rem;
-            color: var(--text-color);
+            color: #3d5229;
             font-weight: bold;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--primary-color);
+        .calcolatore-box select,
+        .calcolatore-box input {
+            margin-bottom: 1rem;
             border-radius: 0.5rem;
-            background-color: white;
-            font-size: 1rem;
+            border: 1px solid #808000;
+            padding: 0.5rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
+        .calcolatore-box button {
+            background-color: #808000;
+            color: #fff;
             border: none;
             border-radius: 1.5rem;
-            padding: 0.75rem 2rem;
+            padding: 0.7rem 2rem;
             font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.2s;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+        .calcolatore-box button:hover {
+            background-color: #3d5229;
         }
 
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .result-text {
+        .calcolatore-box p {
             margin-top: 1.5rem;
-            color: var(--text-color);
+            color: #3d5229;
             font-size: 1.1rem;
             text-align: center;
-            font-weight: 500;
         }
-
-        /* Tabelle */
+        
+        /* Stile per la tabella dei risultati */
         .risultati-tabella {
             margin-top: 2rem;
-            overflow-x: auto;
+            text-align: center;
         }
 
-        table {
+        .risultati-tabella h2 {
+            color: #808000;
+            margin-bottom: 1rem;
+        }
+
+        .risultati-tabella table {
             width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
             border-collapse: collapse;
-            margin-top: 1rem;
-            background-color: white;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        th, td {
-            padding: 1rem;
+        .risultati-tabella th, .risultati-tabella td {
+            border: 1px solid #d6d5d5;
+            padding: 0.75rem;
             text-align: left;
-            border-bottom: 1px solid #e0e0e0;
         }
 
-        th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 600;
+        .risultati-tabella th {
+            background-color: #808000;
+            color: #fff;
+            font-weight: bold;
         }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
+        .risultati-tabella tr:nth-child(even) {
             background-color: #f0f0e0;
         }
 
-        /* Divisori e spaziature */
-        .section-divider {
-            margin: 3rem 0;
-            border: 0;
-            border-top: 1px solid #d6d5d5;
-        }
-
-        .loading-text {
-            text-align: center;
-            margin-top: 1rem;
-            color: #666;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                position: relative;
-                min-height: auto;
-            }
-            
+        /* Gestione dei media query */
+        @media (max-width: 640.98px) {
             .main {
                 margin-left: 0;
             }
-            
-            .top-row {
-                justify-content: space-between;
-            }
-            
-            .top-row a {
-                margin-left: 0;
-            }
-            
-            .calcolatore-box {
-                padding: 1.5rem;
-            }
         }
 
-        @media (min-width: 769px) {
+        @media (min-width: 641px) {
+            .page {
+                flex-direction: row;
+            }
             .sidebar {
-                width: var(--sidebar-width);
+                width: 250px;
                 height: 100vh;
-                position: fixed;
+                position: sticky;
+                top: 0;
             }
-            
             .main {
-                margin-left: var(--sidebar-width);
+                padding-left: 2rem !important;
+                padding-right: 1.5rem !important;
             }
         }
-
-        h1 {
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
+        
     </style>
 </head>
 <body>
-    <div class="page">
-        <div class="sidebar">
-            <h2><i class="fa-solid fa-seedling"></i> RisoApp</h2>
-            <div class="sidebar-links">
-                <a href="#calcolatore" class="active"><i class="fa-solid fa-calculator"></i> Calcolatore</a>
-                <a href="#tabella"><i class="fa-solid fa-chart-bar"></i> Dati sul riso</a>
-                <a href="#storico"><i class="fa-solid fa-clock-rotate-left"></i> Storico</a>
-            </div>
-        </div>
 
-        <div class="main">
-            <div class="top-row">
-                <a href="https://github.com/Yoda080/pipeline" target="_blank">About</a>
+    <div class="sidebar">
+        <h2><i class="fa-solid fa-seedling"></i> RisoApp</h2>
+        <div class="sidebar-links">
+            <a href="#calcolatore"><i class="fa-solid fa-calculator"></i> Calcolatore</a>
+            <a href="#tabella"><i class="fa-solid fa-chart-bar"></i> Dati sul riso</a>
+            <a href="#storico"><i class="fa-solid fa-clock-rotate-left"></i> Storico</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="top-row">
+            <a href="https://github.com/google/gemini-web-template" target="_blank">About</a>
+        </div>
+        
+        <div class="content px-4">
+            <h1 id="calcolatore">Calcolatore acqua per riso</h1>
+            <p>Seleziona il tipo di riso e inserisci la quantità per calcolare l'acqua necessaria.</p>
+            
+            <div class="calcolatore-container">
+                <div class="calcolatore-box">
+                    <div>
+                        <label for="tipoRiso">Tipo di riso:</label>
+                        <select id="tipoRiso">
+                            <option value="Arborio">Arborio</option>
+                            <option value="Basmati">Basmati</option>
+                            <option value="Carnaroli">Carnaroli</option>
+                            <option value="Vialone Nano">Vialone Nano</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="quantitaRiso">Quantità di riso (grammi):</label>
+                        <input id="quantitaRiso" type="number" value="100" min="1" />
+                    </div>
+                    <button id="calcolaBtn">Calcola acqua</button>
+                    <p id="risultatoP" style="display: none;"></p>
+                </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: 1px solid #d6d5d5;" />
+
+            <h1 id="tabella">Tipologie di riso e quantità d'acqua</h1>
+            <p>Questa tabella mostra le tipologie di riso e la quantità d'acqua necessaria per 100g.</p>
+
+            <div class="risultati-tabella">
+                <table id="tabellaTipiRiso">
+                    <thead>
+                        <tr>
+                            <th>Tipo di riso</th>
+                            <th>Acqua per 100g (ml)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- I dati della tabella verranno inseriti qui dal JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <hr style="margin: 3rem 0; border: 1px solid #d6d5d5;" />
+
+            <h1 id="storico">Storico dei calcoli</h1>
+            <p>Qui puoi vedere i risultati dei calcoli salvati. </p>
+
+            <div class="risultati-tabella">
+                <table id="storicoCalcoli">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Quantità riso (g)</th>
+                            <th>Acqua (ml)</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- I dati dello storico verranno inseriti qui dal JavaScript -->
+                    </tbody>
+                </table>
+                <p id="storico-loading" style="text-align: center; margin-top: 1rem;">
+                    <em>Caricamento dello storico...</em>
+                </p>
             </div>
             
-            <div class="content px-4">
-                <section id="calcolatore">
-                    <h1>Calcolatore acqua per riso</h1>
-                    <p>Seleziona il tipo di riso e inserisci la quantità per calcolare l'acqua necessaria.</p>
-                    
-                    <div class="calcolatore-container">
-                        <div class="calcolatore-box">
-                            <div class="form-group">
-                                <label for="tipoRiso">Tipo di riso:</label>
-                                <select id="tipoRiso" class="form-control">
-                                    <option value="Arborio">Arborio</option>
-                                    <option value="Basmati">Basmati</option>
-                                    <option value="Carnaroli">Carnaroli</option>
-                                    <option value="Vialone Nano">Vialone Nano</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="quantitaRiso">Quantità di riso (grammi):</label>
-                                <input id="quantitaRiso" type="number" value="100" min="1" class="form-control" />
-                            </div>
-                            <button id="calcolaBtn" class="btn-primary">Calcola acqua</button>
-                            <p id="risultatoP" class="result-text" style="display: none;"></p>
-                        </div>
-                    </div>
-                </section>
-
-                <hr class="section-divider" />
-
-                <section id="tabella">
-                    <h1>Tipologie di riso e quantità d'acqua</h1>
-                    <p>Questa tabella mostra le tipologie di riso e la quantità d'acqua necessaria per 100g.</p>
-
-                    <div class="risultati-tabella">
-                        <table id="tabellaTipiRiso">
-                            <thead>
-                                <tr>
-                                    <th>Tipo di riso</th>
-                                    <th>Acqua per 100g (ml)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- I dati della tabella verranno inseriti qui dal JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <hr class="section-divider" />
-
-                <section id="storico">
-                    <h1>Storico dei calcoli</h1>
-                    <p>Qui puoi vedere i risultati dei calcoli salvati.</p>
-
-                    <div class="risultati-tabella">
-                        <table id="storicoCalcoli">
-                            <thead>
-                                <tr>
-                                    <th>Tipo</th>
-                                    <th>Quantità riso (g)</th>
-                                    <th>Acqua (ml)</th>
-                                    <th>Data</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- I dati dello storico verranno inseriti qui dal JavaScript -->
-                            </tbody>
-                        </table>
-                        <p id="storico-loading" class="loading-text">
-                            <em>Caricamento dello storico...</em>
-                        </p>
-                    </div>
-                </section>
-            </div>
         </div>
     </div>
     
     <script>
-        // JavaScript di base per la demo
-        document.addEventListener('DOMContentLoaded', function() {
-            // Dati per la tabella
-            const tipiRiso = [
-                { tipo: "Arborio", acqua: 300 },
-                { tipo: "Basmati", acqua: 180 },
-                { tipo: "Carnaroli", acqua: 320 },
-                { tipo: "Vialone Nano", acqua: 280 }
-            ];
-            
-            // Popola la tabella dei tipi di riso
-            const tabellaBody = document.querySelector('#tabellaTipiRiso tbody');
-            tipiRiso.forEach(riso => {
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${riso.tipo}</td><td>${riso.acqua} ml</td>`;
-                tabellaBody.appendChild(row);
-            });
-            
-            // Gestione del calcolo
-            document.getElementById('calcolaBtn').addEventListener('click', function() {
-                const tipoRiso = document.getElementById('tipoRiso').value;
-                const quantitaRiso = parseInt(document.getElementById('quantitaRiso').value);
-                
-                if (isNaN(quantitaRiso) || quantitaRiso <= 0) {
-                    alert("Inserisci una quantità valida");
-                    return;
+        // Configurazione Firebase e Firestore
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        let db;
+        let auth;
+        let userId;
+
+        const initFirebase = async () => {
+            try {
+                if (firebase.apps.length === 0) {
+                    firebase.initializeApp(firebaseConfig);
                 }
+                db = firebase.firestore();
+                auth = firebase.auth();
                 
-                const risoSelezionato = tipiRiso.find(r => r.tipo === tipoRiso);
-                const acquaNecessaria = Math.round((risoSelezionato.acqua * quantitaRiso) / 100);
+                await auth.signInAnonymously();
+                userId = auth.currentUser.uid;
                 
-                const risultatoP = document.getElementById('risultatoP');
-                risultatoP.textContent = `Per ${quantitaRiso}g di riso ${tipoRiso} servono ${acquaNecessaria}ml di acqua.`;
+                console.log("Firebase e Firestore inizializzati con successo.");
+                console.log("UserID:", userId);
+            } catch (error) {
+                console.error("Errore durante l'inizializzazione di Firebase:", error);
+                document.getElementById('risultatoP').textContent = "Errore: impossibile connettersi al database.";
+            }
+        };
+        
+        // Dati dei tipi di riso
+        const tipiRisoData = {
+            "Arborio": 2.5,
+            "Basmati": 2.0,
+            "Carnaroli": 2.2,
+            "Vialone Nano": 2.3
+        };
+
+        // Funzione per popolare la tabella dei tipi di riso
+        const popolaTabellaTipiRiso = () => {
+            const tabellaTipiRisoBody = document.querySelector('#tabellaTipiRiso tbody');
+            tabellaTipiRisoBody.innerHTML = '';
+            for (const tipo in tipiRisoData) {
+                const row = document.createElement('tr');
+                const acquaPer100g = tipiRisoData[tipo] * 100;
+                row.innerHTML = `<td>${tipo}</td><td>${acquaPer100g}</td>`;
+                tabellaTipiRisoBody.appendChild(row);
+            }
+        };
+
+        // Funzione per calcolare l'acqua
+        const calcolaAcqua = () => {
+            const tipoRiso = document.getElementById('tipoRiso').value;
+            const quantitaRiso = parseInt(document.getElementById('quantitaRiso').value);
+            const risultatoP = document.getElementById('risultatoP');
+
+            if (quantitaRiso > 0 && tipiRisoData[tipoRiso]) {
+                const acquaNecessaria = quantitaRiso * tipiRisoData[tipoRiso];
+                risultatoP.textContent = `Per cucinare ${quantitaRiso} g di riso ${tipoRiso} servono ${acquaNecessaria} ml di acqua.`;
                 risultatoP.style.display = 'block';
+                salvaRisultato(tipoRiso, quantitaRiso, acquaNecessaria);
+            } else {
+                risultatoP.textContent = "Inserisci una quantità di riso valida.";
+                risultatoP.style.display = 'block';
+            }
+        };
+
+        // Funzione per salvare il risultato su Firestore
+        const salvaRisultato = async (tipo, quantita, acqua) => {
+            if (!db) {
+                console.error("Database non disponibile.");
+                return;
+            }
+            try {
+                const dataDaSalvare = {
+                    tipo: tipo,
+                    quantita: quantita,
+                    acqua: acqua,
+                    data: firebase.firestore.FieldValue.serverTimestamp()
+                };
+                await db.collection(`artifacts/${appId}/users/${userId}/calcoli_riso`).add(dataDaSalvare);
+            } catch (error) {
+                console.error("Errore nel salvare i dati su Firestore:", error);
+            }
+        };
+        
+        // Funzione per caricare i risultati da Firestore in tempo reale
+        const caricaStorico = () => {
+            if (!db) return;
+            const storicoTableBody = document.querySelector('#storicoCalcoli tbody');
+            const storicoLoading = document.getElementById('storico-loading');
+            
+            db.collection(`artifacts/${appId}/users/${userId}/calcoli_riso`).onSnapshot(snapshot => {
+                storicoTableBody.innerHTML = '';
+                if (snapshot.empty) {
+                    storicoLoading.textContent = "Nessun calcolo salvato.";
+                } else {
+                    storicoLoading.style.display = 'none';
+                    snapshot.forEach(doc => {
+                        const dati = doc.data();
+                        const dataFormattata = dati.data ? new Date(dati.data.toDate()).toLocaleString() : 'Data non disponibile';
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${dati.tipo}</td>
+                            <td>${dati.quantita}</td>
+                            <td>${dati.acqua}</td>
+                            <td>${dataFormattata}</td>
+                        `;
+                        storicoTableBody.appendChild(row);
+                    });
+                }
+            }, err => {
+                console.error("Errore nel recupero dello storico:", err);
+                storicoLoading.textContent = "Errore durante il caricamento dello storico.";
+            });
+        };
+
+        // Event listener
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('calcolaBtn').addEventListener('click', calcolaAcqua);
+            popolaTabellaTipiRiso();
+            initFirebase().then(() => {
+                caricaStorico();
             });
         });
+
     </script>
 </body>
+</html>
+
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="/pipeline/" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+</body>
+
 </html>
