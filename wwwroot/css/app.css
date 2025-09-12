@@ -20,6 +20,10 @@ body {
     min-height: 100vh;
 }
 
+a{
+    color: #808000;
+    text-decoration: none;
+}
 /* Layout */
 .page {
     display: flex;
@@ -171,7 +175,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
-    background-color: white;
+    background-color: rgb(117, 117, 14);
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -189,12 +193,10 @@ th {
     font-weight: 600;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+
 
 tr:hover {
-    background-color: #f0f0e0;
+    background-color: beige;
 }
 
 /* Divisori e spaziature */

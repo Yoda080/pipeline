@@ -1,39 +1,37 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">ProgettoPipeline</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+﻿<nav class="navbar navbar-expand-lg navbar-darkfixed-top" style="height: 60px;">
+    <div class="container-fluid px-3">
+        <div class="d-flex align-items-center">
+            <a class="navbar-brand me-3" href="">Calcolatore di riso</a>
+
+          
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
+                    </NavLink>
+                </li>
+
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="counter">
+                        <span class="bi bi-plus-squaredotted" aria-hidden="true"></span> Counter
+                    </NavLink>
+                </li>
+
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="riso">
+                        <span class="bi bi-clock-history" aria-hidden="true"></span> riso
+                    </NavLink>
+                </li>
+
+            </ul>
+        </div>
     </div>
-</div>
-
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+</nav>

@@ -1,56 +1,49 @@
-/* Sidebar sempre visibile e fissa */
-.sidebar[b-ynpfbemh0m] {
-    background-image: linear-gradient(180deg, rgb(3, 3, 3) 0%, #000000 70%);
-    width: 220px;
-    min-height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 10;
+.page[b-ynpfbemh0m] {
+    position: relative;
     display: flex;
     flex-direction: column;
-}
-
-/* Spaziatura per il contenuto principale */
-.page[b-ynpfbemh0m] {
-    display: flex;
-    flex-direction: row;
+    padding-top: 60px;
     min-height: 100vh;
 }
 
 main[b-ynpfbemh0m] {
     flex: 1;
-    margin-left: 220px; /* Spazio per la sidebar */
 }
 
-/* Stile della top-row, ora scura con testo bianco */
+.sidebar[b-ynpfbemh0m] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
 .top-row[b-ynpfbemh0m] {
-    background-color: #000000; /* Nero */
-    border-bottom: 1px solid #1a1a1a;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
     align-items: center;
-    color: #ffffff; /* Testo bianco */
 }
 
-.top-row a[b-ynpfbemh0m], .top-row .btn-link[b-ynpfbemh0m] {
-    color: #ffffff !important; /* Testo dei link bianco */
-    white-space: nowrap;
-    margin-left: 1.5rem;
-    text-decoration: none;
-}
+    .top-row[b-ynpfbemh0m]  a, .top-row[b-ynpfbemh0m]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
 
-.top-row a:hover[b-ynpfbemh0m], .top-row .btn-link:hover[b-ynpfbemh0m] {
-    text-decoration: underline;
-}
+    .top-row[b-ynpfbemh0m]  a:hover, .top-row[b-ynpfbemh0m]  .btn-link:hover {
+        text-decoration: underline;
+    }
 
-/* Gestione dei media query per la top-row */
+    .top-row[b-ynpfbemh0m]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 @media (max-width: 640.98px) {
     .top-row[b-ynpfbemh0m] {
         justify-content: space-between;
     }
-    .top-row a[b-ynpfbemh0m], .top-row .btn-link[b-ynpfbemh0m] {
+
+    .top-row[b-ynpfbemh0m]  a, .top-row[b-ynpfbemh0m]  .btn-link {
         margin-left: 0;
     }
 }
@@ -59,22 +52,26 @@ main[b-ynpfbemh0m] {
     .page[b-ynpfbemh0m] {
         flex-direction: row;
     }
+
     .sidebar[b-ynpfbemh0m] {
         width: 250px;
         height: 100vh;
         position: sticky;
         top: 0;
     }
+
     .top-row[b-ynpfbemh0m] {
         position: sticky;
         top: 0;
         z-index: 1;
     }
+
     .top-row.auth[b-ynpfbemh0m]  a:first-child {
         flex: 1;
         text-align: right;
         width: 0;
     }
+
     .top-row[b-ynpfbemh0m], article[b-ynpfbemh0m] {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;

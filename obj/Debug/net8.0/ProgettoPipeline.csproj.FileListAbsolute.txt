@@ -3133,9 +3133,6 @@ C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\e9eidrpbxr-tj
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\y26lthwjgn-tptq2av103.gz
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\sge32j7fnl-lfu7j35m59.gz
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\4glg75xtqi-oyz0vx2fzb.gz
-C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\1yny27s4hl-2pvp7fpq73.gz
-C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\ucdgav30az-e25hwr3c0d.gz
-C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\ruhqla0ies-gf9kmjiwz2.gz
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\staticwebassets.development.json
@@ -3145,3 +3142,6 @@ C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\ProgettoPipeline.dll
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\refint\ProgettoPipeline.dll
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\ProgettoPipeline.pdb
 C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\ref\ProgettoPipeline.dll
+C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\1yny27s4hl-lnccv8h21a.gz
+C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\ucdgav30az-rmo04sy4hm.gz
+C:\Users\A894apulia\Desktop\pipeline-1\obj\Debug\net8.0\compressed\ruhqla0ies-473v3rsstz.gz

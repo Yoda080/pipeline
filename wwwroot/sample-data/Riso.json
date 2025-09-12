@@ -1,0 +1,34 @@
+﻿[
+  {
+    "Tipo": "Arborio",
+    "AcquaPer100g": 300
+  },
+  {
+    "Tipo": "Basmati",
+    "AcquaPer100g": 180
+  },
+  {
+    "Tipo": "Carnaroli",
+    "AcquaPer100g": 320
+  },
+  {
+    "Tipo": "Vialone Nano",
+    "AcquaPer100g": 280
+  },
+  {
+    "Tipo": "Integrale",
+    "AcquaPer100g": 350
+  },
+  {
+    "Tipo": "Jasmine",
+    "AcquaPer100g": 200
+  },
+  {
+    "Tipo": "Venere",
+    "AcquaPer100g": 380
+  },
+  {
+    "Tipo": "Originario",
+    "AcquaPer100g": 250
+  }
+]
