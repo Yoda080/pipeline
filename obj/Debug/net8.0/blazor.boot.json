@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "ProgettoPipeline",
   "resources": {
-    "hash": "sha256-/HmQw5caQ3U20GDR0vmunSo7SfJcXNdjgtlgYQyq/hA=",
+    "hash": "sha256-LPhYKTjyr/x2PoLuMJwehTySu8HNvYvvTTjbT05Fzpo=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-1QpKPnxEuRCElzcp+e3MrovJeAJkuzqKmRQay/6Aa08="
     },
@@ -209,10 +209,10 @@
       "mscorlib.wasm": "sha256-UnQd0YPXNpwbXsKqO8RAqgUVuwZsSpprfAIPpdV/y1Q=",
       "netstandard.wasm": "sha256-/QbD8JDZyYwfyk89W3qJL3HTAINDCVziZIySHIZcDhw=",
       "System.Private.CoreLib.wasm": "sha256-oBqNgH7R24FqGbaL3XnfQDqn3rk28jERFosgAryKT6U=",
-      "ProgettoPipeline.wasm": "sha256-QK30o9veUAYQZPZA3La4IMoN9DSTKS120QZ/VS3W2T4="
+      "ProgettoPipeline.wasm": "sha256-SoAM9bv3ZjntQiNG4XnORIVohUVVVZSzFwfMuPQnY3o="
     },
     "pdb": {
-      "ProgettoPipeline.pdb": "sha256-HkECtyzPjwC0eCd6S1srqfkhalngVG2Hk7KxbfkN0VI="
+      "ProgettoPipeline.pdb": "sha256-5s+LjGWZYk05DTrDXJ3QIBQkI0grNTotZN6cX+/C+W4="
     }
   },
   "cacheBootResources": true,

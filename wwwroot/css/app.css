@@ -13,8 +13,8 @@
     box-sizing: border-box;
 }
 
-html, body {
-    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body {
+    font-family: 'Inter', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
@@ -23,7 +23,6 @@ html, body {
 /* Layout */
 .page {
     display: flex;
-    flex-direction: row;
     min-height: 100vh;
 }
 
@@ -34,11 +33,9 @@ html, body {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     padding: 1.5rem 1rem;
     color: white;
-    display: flex;
-    flex-direction: column;
 }
 
 .sidebar h2 {
@@ -73,7 +70,6 @@ html, body {
 .main {
     flex: 1;
     margin-left: var(--sidebar-width);
-    padding: 1rem;
 }
 
 .top-row {
@@ -84,15 +80,13 @@ html, body {
     display: flex;
     align-items: center;
     padding: 0 1.5rem;
-    color: #ffffff;
 }
 
 .top-row a {
-    color: #ffffff;
+    color: white;
     white-space: nowrap;
     margin-left: 1.5rem;
     text-decoration: none;
-    line-height: 3.5rem;
 }
 
 .top-row a:hover {
@@ -171,19 +165,12 @@ html, body {
 .risultati-tabella {
     margin-top: 2rem;
     overflow-x: auto;
-    text-align: center;
-}
-
-.risultati-tabella h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
 table {
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
     border-collapse: collapse;
+    margin-top: 1rem;
     background-color: white;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -223,65 +210,6 @@ tr:hover {
     color: #666;
 }
 
-h1 {
-    margin-bottom: 1rem;
-    color: var(--secondary-color);
-}
-
-p {
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-/* Stili specifici per Blazor */
-h1:focus {
-    outline: none;
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
-}
-
-#blazor-error-ui {
-    background: #e0e0e0;
-    bottom: 0;
-    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
-    display: none;
-    left: 0;
-    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    color: var(--text-color);
-}
-
-#blazor-error-ui .dismiss {
-    cursor: pointer;
-    position: absolute;
-    right: 0.75rem;
-    top: 0.5rem;
-}
-
-.loading-progress circle:last-child {
-    stroke: var(--primary-color);
-}
-
-code {
-    color: var(--primary-color);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .sidebar {
@@ -316,7 +244,226 @@ code {
     
     .main {
         margin-left: var(--sidebar-width);
-        padding-left: 2rem;
-        padding-right: 1.5rem;
     }
+}
+/* Stile del corpo e del calcolatore */
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f5f5dc; /* beige */
+    color: #3d5229; /* verde oliva scuro */
+    min-height: 100vh;
+}
+
+
+.calcolatore-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+.calcolatore-box {
+    background: #f5f5dc; /* beige */
+    border-radius: 2rem;
+    box-shadow: 0 4px 24px rgba(61, 82, 41, 0.15);
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    width: 100%;
+}
+
+.calcolatore-box label {
+    margin-bottom: 0.5rem;
+    color: #3d5229;
+    font-weight: bold;
+}
+
+.calcolatore-box select,
+.calcolatore-box input {
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #808000;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.calcolatore-box button {
+    background-color: #808000;
+    color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+.calcolatore-box button:hover {
+    background-color: #3d5229;
+}
+
+.calcolatore-box p {
+    margin-top: 1.5rem;
+    color: #3d5229;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Stile per la tabella dei risultati */
+.risultati-tabella {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.risultati-tabella h2 {
+    color: #808000;
+    margin-bottom: 1rem;
+}
+
+.risultati-tabella table {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.risultati-tabella th, .risultati-tabella td {
+    border: 1px solid #d6d5d5;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.risultati-tabella th {
+    background-color: #808000;
+    color: #fff;
+    font-weight: bold;
+}
+
+.risultati-tabella tr:nth-child(even) {
+    background-color: #f0f0e0;
+}
+
+/* Stile per la top-row e sidebar */
+.page {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.sidebar {
+    /* Gradiente verde per abbinarsi al calcolatore */
+    background-image: linear-gradient(180deg, #808000 0%, #3d5229 70%);
+    width: 220px;
+    min-height: 100vh; /* Assicura che la sidebar copra l'intera altezza del viewport */
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    margin-left: 220px; /* Spazio per la sidebar */
+    padding: 1rem;
+}
+
+.top-row {
+    background-color: #1a1a1a; /* Grigio scuro per abbinarsi al verde */
+    border-bottom: 1px solid #333;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    padding: 0 1.5rem;
+}
+
+.top-row a {
+    color: #ffffff !important;
+    white-space: nowrap;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    line-height: 3.5rem;
+}
+
+.top-row a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640.98px) {
+    .main {
+        margin-left: 0;
+    }
+    .top-row {
+        justify-content: space-between;
+    }
+    .top-row a {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+    .main {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+/* Cleanup e stili generici per Blazor */
+h1:focus {
+    outline: none;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #808000;
+    border-color: #3d5229;
+}
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+.invalid {
+    outline: 1px solid red;
+}
+.validation-message {
+    color: red;
+}
+#blazor-error-ui {
+    background: #e0e0e0;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    color: #3d5229;
+}
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+.loading-progress circle:last-child {
+    stroke: #808000;
+}
+code {
+    color: #808000;
 }

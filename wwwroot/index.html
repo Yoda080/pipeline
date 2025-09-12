@@ -1,105 +1,32 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RisoApp - Calcolatore Acqua per Riso</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="css/app.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App riso</title>
+    <base href="/" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="MyBlazorApp.styles.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="page">
-        <div class="sidebar">
-            <h2><i class="fa-solid fa-seedling"></i> RisoApp</h2>
-            <div class="sidebar-links">
-                <a href="#calcolatore" class="active"><i class="fa-solid fa-calculator"></i> Calcolatore</a>
-                <a href="#tabella"><i class="fa-solid fa-chart-bar"></i> Dati sul riso</a>
-                <a href="#storico"><i class="fa-solid fa-clock-rotate-left"></i> Storico</a>
-            </div>
-        </div>
-
-        <div class="main">
-            <div class="top-row">
-                <a href="https://github.com/Yoda080/pipeline" target="_blank">About</a>
-            </div>
-            
-            <div class="content">
-                <section id="calcolatore">
-                    <h1>Calcolatore acqua per riso</h1>
-                    <p>Seleziona il tipo di riso e inserisci la quantità per calcolare l'acqua necessaria.</p>
-                    
-                    <div class="calcolatore-container">
-                        <div class="calcolatore-box">
-                            <div class="form-group">
-                                <label for="tipoRiso">Tipo di riso:</label>
-                                <select id="tipoRiso" class="form-control">
-                                    <option value="Arborio">Arborio</option>
-                                    <option value="Basmati">Basmati</option>
-                                    <option value="Carnaroli">Carnaroli</option>
-                                    <option value="Vialone Nano">Vialone Nano</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="quantitaRiso">Quantità di riso (grammi):</label>
-                                <input id="quantitaRiso" type="number" value="100" min="1" class="form-control" />
-                            </div>
-                            <button id="calcolaBtn" class="btn-primary">Calcola acqua</button>
-                            <p id="risultatoP" class="result-text" style="display: none;"></p>
-                        </div>
-                    </div>
-                </section>
-
-                <hr class="section-divider" />
-
-                <section id="tabella">
-                    <h1>Tipologie di riso e quantità d'acqua</h1>
-                    <p>Questa tabella mostra le tipologie di riso e la quantità d'acqua necessaria per 100g.</p>
-
-                    <div class="risultati-tabella">
-                        <table id="tabellaTipiRiso">
-                            <thead>
-                                <tr>
-                                    <th>Tipo di riso</th>
-                                    <th>Acqua per 100g (ml)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- I dati della tabella verranno inseriti qui dal JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <hr class="section-divider" />
-
-                <section id="storico">
-                    <h1>Storico dei calcoli</h1>
-                    <p>Qui puoi vedere i risultati dei calcoli salvati.</p>
-
-                    <div class="risultati-tabella">
-                        <table id="storicoCalcoli">
-                            <thead>
-                                <tr>
-                                    <th>Tipo</th>
-                                    <th>Quantità riso (g)</th>
-                                    <th>Acqua (ml)</th>
-                                    <th>Data</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- I dati dello storico verranno inseriti qui dal JavaScript -->
-                            </tbody>
-                        </table>
-                        <p id="storico-loading" class="loading-text">
-                            <em>Caricamento dello storico...</em>
-                        </p>
-                    </div>
-                </section>
-            </div>
-        </div>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
     </div>
-    
-    <script src="app.js"></script>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
 </body>
+
 </html>
