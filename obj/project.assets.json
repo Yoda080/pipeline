@@ -1850,11 +1850,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\A894apulia\\Desktop\\ProgettoPipeline\\ProgettoPipeline.csproj",
+      "projectUniqueName": "C:\\Users\\A894apulia\\Desktop\\pipeline-1\\ProgettoPipeline.csproj",
       "projectName": "ProgettoPipeline",
-      "projectPath": "C:\\Users\\A894apulia\\Desktop\\ProgettoPipeline\\ProgettoPipeline.csproj",
+      "projectPath": "C:\\Users\\A894apulia\\Desktop\\pipeline-1\\ProgettoPipeline.csproj",
       "packagesPath": "C:\\Users\\A894apulia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\A894apulia\\Desktop\\ProgettoPipeline\\obj\\",
+      "outputPath": "C:\\Users\\A894apulia\\Desktop\\pipeline-1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\A894apulia\\AppData\\Roaming\\NuGet\\NuGet.Config"
